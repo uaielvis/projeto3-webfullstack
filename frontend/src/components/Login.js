@@ -8,11 +8,11 @@ const Login = ({ setAuth }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', { username, password });
+      const res = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       localStorage.setItem('token', res.data.token);
       setAuth(true);
     } catch (err) {
-      console.error(err);
+      console.error('Erro ao tentar fazer login:', err);
     }
   };
 
