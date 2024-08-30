@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 const users = [
     {
         id: 1,
-        username: 'testeusuario',
-        password: '123456' // senha: "senhaSegura123"
+        username: 'usuarioTeste',
+        password: '$2a$10$7tOgXtbB97B3RrM8xIYGAOt8hxXDeH6fYlJqYdKT1kP8qP9ewj.Xm' // senha: "senhaSegura123"
     }
 ];
 

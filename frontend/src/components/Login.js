@@ -12,7 +12,7 @@ const Login = ({ setAuth }) => {
       localStorage.setItem('token', res.data.token);
       setAuth(true);
     } catch (err) {
-      console.error('Erro ao tentar fazer login:', err);
+      console.error(err.response.data.message || 'Erro ao realizar login');
     }
   };
 

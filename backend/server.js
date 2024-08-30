@@ -1,19 +1,28 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-
-dotenv.config();
 const app = express();
+const port = 5000;
+
+// URL de conexão do MongoDB
+const dbUri = 'mongodb://localhost:27017/projeto3-db'; // Para MongoDB local
+
+mongoose.connect(dbUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('Conectado ao MongoDB');
+}).catch(err => {
+  console.error('Erro ao conectar ao MongoDB', err);
+});
 
 app.use(cors());
 app.use(express.json());
 
-// Rotas
-app.use('/api/auth', require('./routes/auth'));
+// Configurando o roteador de autenticação
+const authRouter = require('./routes/auth');
+app.use('/api/auth', authRouter);
 
-// Porta do servidor
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });
