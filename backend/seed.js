@@ -1,26 +1,33 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs'); // Atualizado para bcryptjs
-const User = require('./models/User'); // Ajuste o caminho conforme sua estrutura
+const bcrypt = require('bcryptjs');
+const User = require('./models/User'); // Certifique-se de que o caminho está correto
 
 mongoose.connect('mongodb://localhost:27017/projeto3-db', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
   console.log('Conectado ao MongoDB');
+}).catch(err => {
+  console.error('Erro ao conectar ao MongoDB', err);
 });
 
 const seedUser = async () => {
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash('testpassword', salt);
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash('123456', salt); // Use a senha correta
 
-  const user = new User({
-    username: 'testuser',
-    password: hashedPassword
-  });
+    const user = new User({
+      username: 'andressa',
+      password: hashedPassword
+    });
 
-  await user.save();
-  console.log('User seeded!');
-  mongoose.connection.close();
+    await user.save();
+    console.log('User seeded!');
+  } catch (err) {
+    console.error('Erro ao semear o usuário:', err);
+  } finally {
+    mongoose.connection.close();
+  }
 };
 
 seedUser();

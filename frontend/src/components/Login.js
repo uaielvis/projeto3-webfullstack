@@ -12,7 +12,8 @@ const Login = ({ setAuth }) => {
       localStorage.setItem('token', res.data.token);
       setAuth(true);
     } catch (err) {
-      console.error(err.response.data.message || 'Erro ao realizar login');
+      const errorMessage = err.response?.data?.message || 'Erro ao realizar login';
+      console.error(errorMessage);
     }
   };
 

@@ -3,6 +3,8 @@ import Login from './components/Login';
 import Search from './components/Search';
 import Insert from './components/Insert';
 
+require('dotenv').config();
+
 function App() {
   const [isAuth, setAuth] = useState(false);
 
