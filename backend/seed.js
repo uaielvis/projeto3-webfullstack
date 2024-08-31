@@ -14,10 +14,10 @@ mongoose.connect('mongodb://localhost:27017/projeto3-db', {
 const seedUser = async () => {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash('123456', salt); // Use a senha correta
+    const hashedPassword = await bcrypt.hash('356412', salt); // Use a senha correta
 
     const user = new User({
-      username: 'andressa',
+      username: 'alice',
       password: hashedPassword
     });
 

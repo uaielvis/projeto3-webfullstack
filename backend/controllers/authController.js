@@ -2,6 +2,15 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User'); // Ajuste o caminho conforme necessário
 
+// Simulando um banco de dados de usuários
+const users = [
+    {
+        id: 1,
+        username: 'usuarioTeste',
+        password: '$2a$10$OGbMswSBtZwJTIWzb0Vhpu31v/32bkksPfHZ6GnluPKlJHJoFwvay' // senha: "senhaSegura123"
+    }
+];
+
 // Função de controle para o login
 exports.login = (req, res) => {
     const { username, password } = req.body;
