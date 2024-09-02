@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../config/authMiddleware');
-const { searchVerse } = require('../controllers/verseController');
+const { searchVerse } = require('../controllers/versesController');
 
 router.get('/verses', auth, searchVerse);
 

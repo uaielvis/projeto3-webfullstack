@@ -12,8 +12,9 @@ function App() {
     <div className="App">
       {isAuth ? (
         <>
-          <Search />
           <Insert />
+          <Search />
+          
         </>
       ) : (
         <Login setAuth={setAuth} />

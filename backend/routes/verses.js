@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const verseController = require('../controllers/verseController');
 
-// Rota para buscar um versículo
-router.get('/:livro/:capitulo/:versiculo', (req, res) => {
-  const { livro, capitulo, versiculo } = req.params;
-  // Simulação de busca no banco de dados (ou API)
-  const versiculoTexto = `Simulação de texto para ${livro} ${capitulo}:${versiculo}`;
-  res.json({ texto: versiculoTexto });
-});
+// Rota para buscar versículos usando query parameters
+router.get('/', verseController.searchVerse);
+
+// Rota para inserir um novo versículo
+router.post('/', verseController.insertVerse);
 
 module.exports = router;
+
+
