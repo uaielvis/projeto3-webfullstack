@@ -43,6 +43,11 @@ const dbUri = 'mongodb://localhost:27017/projeto3-db';
 5. Testar o Projeto
 No navegador, acesse a aplicação front-end que está rodando em http://localhost:3000.
 
+##### USUARIO PARA TESTE #####
+
+Usuario: usuarioTeste
+Senha: senhaSegura123
+
 Teste as funcionalidades da aplicação, como o login e a busca de versículos, para garantir que tudo está funcionando conforme esperado.
 
 6. Verificar Logs e Erros
