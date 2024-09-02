@@ -52,4 +52,4 @@ Teste as funcionalidades da aplicação, como o login e a busca de versículos, 
 
 6. Verificar Logs e Erros
 Observe os logs no terminal onde o back-end e o front-end estão rodando para identificar quaisquer erros ou problemas.
-
+![terminal](image.png)
