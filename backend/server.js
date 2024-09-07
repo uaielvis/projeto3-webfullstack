@@ -2,7 +2,18 @@ const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const redis = require('redis');
+const client = redis.createClient();
 require('dotenv').config();
+
+// Conectar ao Redis
+client.on('connect', () => {
+  console.log('Conectado ao Redis');
+});
+
+client.on('error', (err) => {
+  console.log('Erro no Redis:', err);
+});
 
 // Define a porta do servidor
 const PORT = process.env.PORT || 5000;
